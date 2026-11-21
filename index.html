@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solarline Inventory — Solarline Power Solution</title>
+  <meta name="description" content="Solarline Inventory is the official enterprise warehouse, barcode scanning, and inventory management mobile application for Solarline Power Solution." />
+  <link rel="icon" type="image/jpeg" href="./logo.jpg" />
+  <style>
+    :root {
+      --navy: #0e3a53;
+      --navy-dark: #082638;
+      --accent: #e53935;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 2px;
+    }
+    .brand-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--navy-dark);
+      display: block;
+    }
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.15s ease;
+    }
+    nav a:hover {
+      color: var(--navy);
+    }
+    .nav-btn {
+      background: var(--navy);
+      color: #fff !important;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    .nav-btn:hover {
+      background: var(--navy-dark);
+    }
+    main {
+      flex: 1;
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 44px 36px;
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 36px;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    }
+    .badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      line-height: 1.25;
+      color: var(--navy-dark);
+      margin-bottom: 14px;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+    }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--navy);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 11px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .btn-primary:hover {
+      background: var(--navy-dark);
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: #f1f5f9;
+      color: var(--text);
+      text-decoration: none;
+      padding: 11px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: #e2e8f0;
+    }
+    .hero-logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .hero-logo-box img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      object-fit: contain;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      color: var(--navy-dark);
+      margin: 44px 0 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .card h3 {
+      font-size: 1.05rem;
+      color: var(--navy-dark);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .info-box {
+      margin-top: 36px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--navy);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .info-box h2 {
+      font-size: 1.15rem;
+      color: var(--navy-dark);
+      margin-bottom: 8px;
+    }
+    .info-box p {
+      font-size: 0.94rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 32px 22px;
+      }
+      .cta-group {
+        justify-content: center;
+      }
+      .hero-logo-box {
+        order: -1;
+        max-width: 180px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="./index.html" class="brand">
+        <img src="./logo.jpg" alt="Solarline Power Solution Logo" />
+        <div>
+          <span class="brand-title">Solarline Inventory</span>
+          <span class="brand-sub">Solarline Power Solution</span>
+        </div>
+      </a>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="#features">Features</a>
+        <a href="./privacy.html" class="nav-btn">Privacy Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="badge">Enterprise Warehouse &amp; Stock Management</span>
+        <h1>Solarline Inventory Mobile Application</h1>
+        <p>
+          <strong>Solarline Inventory</strong> is the internal Android inventory and warehouse tracking system built for
+          <strong>Solarline Power Solution</strong>. It empowers authorized warehouse administrators and staff to scan equipment barcodes,
+          monitor real-time solar hardware stock levels, work offline seamlessly, and export Excel audit reports.
+        </p>
+        <div class="cta-group">
+          <a href="./privacy.html" class="btn-primary">Read Privacy Policy</a>
+          <a href="mailto:ijonathanleopoldo@gmail.com" class="btn-secondary">Contact Administrator</a>
+        </div>
+      </div>
+      <div class="hero-logo-box">
+        <img src="./logo.jpg" alt="Solarline Power Solution Official Logo" />
+      </div>
+    </section>
+
+    <h2 id="features" class="section-title">Key Capabilities</h2>
+    <section class="grid">
+      <div class="card">
+        <h3>Barcode &amp; OCR Scanning</h3>
+        <p>
+          High-speed camera barcode and label text scanning for solar panels, inverters, batteries, and mounting hardware with instant stock lookup.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Offline-First Synchronization</h3>
+        <p>
+          Built on local SQLite with automatic cloud replication so warehouse teams can record stock-in and stock-out transactions even without internet access.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Role-Based Google SSO</h3>
+        <p>
+          Secure Google Single Sign-On restricted to authorized Solarline Power Solution personnel with separated Administrator and Staff permissions.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Excel Reports &amp; Drive Backup</h3>
+        <p>
+          Generate formatted Excel (<code>.xlsx</code>) inventory and scan history reports locally or optionally back them up to a user-selected Google Drive folder.
+        </p>
+      </div>
+    </section>
+
+    <section class="info-box">
+      <h2>Data Privacy &amp; Google Account Usage</h2>
+      <p>
+        Solarline Inventory uses Google Sign-In strictly to verify authorized personnel email addresses and display names against our company access whitelist.
+        Optional Google Drive permissions are requested only when an administrator explicitly exports an inventory report to Google Drive.
+      </p>
+      <p>
+        For complete details on how we handle, store, and protect user data, please review our
+        <a href="./privacy.html"><strong>Privacy Policy</strong></a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      &copy; 2026 <strong>Solarline Power Solution</strong> &mdash; Solarline Inventory App. All rights reserved.
+      &nbsp;|&nbsp;
+      <a href="./index.html">Homepage</a>
+      &nbsp;|&nbsp;
+      <a href="./privacy.html">Privacy Policy</a>
+      &nbsp;|&nbsp;
+      <a href="mailto:ijonathanleopoldo@gmail.com">Support</a>
+    </p>
+  </footer>
+</body>
+</html>
